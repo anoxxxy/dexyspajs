@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Navigation Menu</title>
+  <link rel="stylesheet" href="./assets/css/bootstrap/bootstrap.min.css">
+
+  <style>
+    .tab-pane.fade {
+    transition: all 0.3s;
+    transform: translateY(1rem);
+  }
+
+  .tab-pane.fade.show {
+    transform: translateY(0rem);
+  }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Navigation Menu -->
+    <ul class="nav nav-tabs" id="navigationTabs">
+      <li class="nav-item">
+        <a class="nav-link" href="#about" data-page="about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#bot" data-page="bot">Bot</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#balance" data-page="balance">Balance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#login" data-page="login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#logout" data-page="logout">Logout</a>
+      </li>
+    </ul>
+    
+    <!-- Page Contents -->
+    <div class="tab-content" id="pageContents">
+      <!-- About Page -->
+      <div id="about" class="tab-pane fade">
+        <h3>About Page</h3>
+        <!-- Add your content for the About page here -->
+        <div class="card">
+          Lorem ipsum mipsum dolore...
+        </div>
+      </div>
+
+      <!-- Bot Page -->
+      <div id="bot" class="tab-pane fade">
+        <h3>Bot Page</h3>
+        <!-- Add your content for the Bot page here -->
+        <div class="card">
+          Lorem ipsum mipsum dolore...
+        </div>
+      </div>
+      
+      <!-- Login Page -->
+      <div id="login" class="tab-pane fade">
+        <h3>Login Page</h3>
+        <!-- Add your content for the Login page here -->
+        <div class="card">
+          Lorem ipsum mipsum dolore...
+        </div>
+      </div>
+
+      <!-- Logout Page -->
+      <div id="logout" class="tab-pane fade">
+        <h3>Logout Page</h3>
+        <!-- Add your content for the Logout page here -->
+        <div class="card">
+          Lorem ipsum mipsum dolore...
+        </div>
+      </div>
+
+      <!-- Balance Page -->
+      <div id="balance" class="tab-pane fade">
+        <h3>Balance Page</h3>
+        <!-- Add your content for the Balance page here -->
+        <div class="card">
+          Lorem ipsum mipsum dolore...
+        </div>
+      </div>
+    </div>  <!-- //Page Contents -->
+    
+    <!-- DexySPA.js info -->
+    <div class="py-4" id="dexySPAInfo">
+      <!-- Display version and credits -->
+      <p><strong>v0.1</strong> </p>
+        <ul>
+          <li>Basic SPA functionality added with routing support</li>
+          <li>We are using the amazing open source lightweight routing library <a href="https://github.com/silviodelgado/routerjs" target="_blank">RouterJS</a> - developed by <b>silviodelgado</b></li>
+        </ul>
+        <hr>
+
+        <strong>Summary of DexySPA.js</strong>
+        <p>This code snippet is a basic single-page application (SPA) template with a navigation menu using Bootstrap. It allows users to navigate between different pages within the application without refreshing the entire page.</p>
+
+        <p>The code sets up a navigation menu with tabs for different pages such as About, Bot, Balance, Login, and Logout. Each tab corresponds to a specific section on the page, which can be customized with content.</p>
+
+        <p>When a user clicks on a navigation link, the code uses JavaScript and Bootstrap to handle the tab switching functionality. The showPage function is responsible for showing the selected page and highlighting the active navigation link. It uses Bootstrap's tab method to show the selected tab.</p>
+
+        <p>The code also includes a lightweight routing library called <a href="https://github.com/silviodelgado/routerjs" target="_blank">RouterJS</a>, which helps in managing the page navigation and handling URL changes. It defines route handlers for each page, allowing the appropriate page to be shown based on the URL.</p>
+
+        <p>Additionally, the code includes some logic to determine the availability of pages based on the user's login status. Certain pages like Bot, Balance, and Logout are only accessible when the user is logged in, while the Login page is only accessible when the user is logged out.</p>
+
+        <p>Overall, this code provides a foundation for building a basic SPA with a navigation menu and tab switching functionality using Bootstrap and JavaScript. It can be customized and extended to add more pages and functionality as needed.</p>
+
+        <p>Please note that the code also includes references to external CSS and JavaScript files, including Bootstrap, jQuery, and the RouterJS library, which need to be included for the code to work properly.</p>
+
+        <p>Feel free to modify and enhance this code according to your specific requirements. Good luck with your project!</p>
+
+        <hr>
+
+        <div class="py-3">
+          <strong>Some notes:</strong>
+          <ul>
+            <li>The page contents have an id attribute (id="pageContents") for easy selection.</li>
+            <li>Each page content is encapsulated within a <div> element with a unique idfor easy identification and navigation.</li>
+            <li>The router functionality has been integrated using the RouterJS library. The router handles the routing logic based on the clicked navigation links and the requested URL.</li>
+            <li>The showPage function is responsible for showing the selected page and updating the active state of navigation links.</li>
+            <li>The isPageAvailable function determines whether a page is available based on the user's login status.</li>
+            <li>The router is configured with different routes for each page, and the beforeAll function is used to handle page availability and show the appropriate page.</li>
+            <li>The router's afterAll function can be used to run any code after all routes are processed.</li>
+            <li>Navigation clicks are handled using event delegation. The $('.nav-link') selector captures all navigation links, and the click event is attached to them. Clicking a navigation link triggers the showPage function to display the corresponding page.</li>
+            <li>The necessary JavaScript libraries (jQuery, Bootstrap, Velocity, RouterJS) are included at the end of the HTML file.</li>
+          </ul> 
+        </div>
+
+    </div>
+
+  </div>  <!-- //Container -->
+
+  <script src="./assets/js/jquery-3.6.1.min.js"></script>
+  <script src="./assets/js/bootstrap.min.js"></script>
+  
+  <script src="./assets/js/velocity/velocity.min.js"></script>
+  <script src="./assets/js/velocity/velocity.ui.min.js"></script>
+  <script src="./assets/js/router/router.js"></script>
+  <script src="./assets/js/dexyspa.js"></script>
+</body>
+</html>
