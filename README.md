@@ -1,5 +1,7 @@
 # DexySPA.js - developed by @anoxxxy
-Lighweight basic single-page application (SPA) template with a navigation menu using Bootstrap 4 ans JQuery
+Lighweight basic single-page application (SPA) template with a navigation menu using Bootstrap 4 ans JQuery.
+
+DexySPA.js demo - https://anoxxxy.github.io/dexyspajs
 
 This code provides a lighweight basic single-page application (SPA) template with a navigation menu using Bootstrap 4 ans JQuery. It allows users to navigate between different pages within the application without refreshing the entire page.
 
