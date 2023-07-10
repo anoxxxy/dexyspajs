@@ -21,10 +21,16 @@
     <!-- Navigation Menu -->
     <ul class="nav nav-tabs" id="navigationTabs">
       <li class="nav-item">
+        <a class="nav-link" href="#start" data-page="start">Start</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="#about" data-page="about">About</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#bot" data-page="bot">Bot</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#market" data-page="market">Market</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#balance" data-page="balance">Balance</a>
@@ -35,16 +41,28 @@
       <li class="nav-item">
         <a class="nav-link" href="#logout" data-page="logout">Logout</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#profile" data-page="profile">Profile</a>
+      </li>
     </ul>
     
     <!-- Page Contents -->
     <div class="tab-content" id="pageContents">
+      <!-- Start Page -->
+      <div id="start" class="tab-pane fade">
+        <h3>Start Page</h3>
+        <!-- Add your content for the Start page here -->
+        <div class="card">
+          Lorem ipsum mipsum dolore... start
+        </div>
+      </div>
+
       <!-- About Page -->
       <div id="about" class="tab-pane fade">
         <h3>About Page</h3>
         <!-- Add your content for the About page here -->
         <div class="card">
-          Lorem ipsum mipsum dolore...
+          Lorem ipsum mipsum dolore... about
         </div>
       </div>
 
@@ -53,7 +71,16 @@
         <h3>Bot Page</h3>
         <!-- Add your content for the Bot page here -->
         <div class="card">
-          Lorem ipsum mipsum dolore...
+          Lorem ipsum mipsum dolore... bot
+        </div>
+      </div>
+
+      <!-- Market Page -->
+      <div id="market" class="tab-pane fade">
+        <h3>Market Page</h3>
+        <!-- Add your content for the Market page here -->
+        <div class="card">
+          Lorem ipsum mipsum dolore... market
         </div>
       </div>
       
@@ -62,7 +89,7 @@
         <h3>Login Page</h3>
         <!-- Add your content for the Login page here -->
         <div class="card">
-          Lorem ipsum mipsum dolore...
+          Lorem ipsum mipsum dolore... login
         </div>
       </div>
 
@@ -71,7 +98,7 @@
         <h3>Logout Page</h3>
         <!-- Add your content for the Logout page here -->
         <div class="card">
-          Lorem ipsum mipsum dolore...
+          Lorem ipsum mipsum dolore... logout
         </div>
       </div>
 
@@ -80,65 +107,179 @@
         <h3>Balance Page</h3>
         <!-- Add your content for the Balance page here -->
         <div class="card">
-          Lorem ipsum mipsum dolore...
+          Lorem ipsum mipsum dolore... balance
         </div>
       </div>
+
+      <!-- Profile Page -->
+      <div id="profile" class="tab-pane fade">
+        <h3>Profile Page</h3>
+        <!-- Add your content for the Balance page here -->
+        <div class="card">
+          Lorem ipsum mipsum dolore... profile..
+        </div>
+      </div>
+      
     </div>  <!-- //Page Contents -->
     
     <!-- DexySPA.js info -->
     <div class="py-4" id="dexySPAInfo">
       <!-- Display version and credits -->
-      <p><strong>v0.1</strong> </p>
+      
+      <p>DexySPA v0.22 - Updates:</p>
+      <ul>
+        <li>Removed JQuery dependency for improved performance and reduced file size.</li>
+        <li>Improved handling of invalid routes for better error handling.</li>
+        <li>Enhanced handling of unauthorized page access for enhanced security.</li>
+        <li>Upgraded Router.JS for seamless navigation of hash-pages in VanillaJS.</li>
+        <li>In addition to the updates mentioned above, the DexySPA framework now includes the `dexyspa.class.js` file. This file contains the `DexySPA` class, which serves as the core component of the DexySPA framework. You can use this class to initialize and configure your SPA.</li>
+      </ul>
+
+      <p><strong>About DexySPA.js</strong> </p>
         <ul>
-          <li>Basic SPA functionality added with routing support</li>
-          <li>We are using the amazing open source lightweight routing library <a href="https://github.com/silviodelgado/routerjs" target="_blank">RouterJS</a> - developed by <b>silviodelgado</b></li>
+          <li>DexySPA is a professional single-page application (SPA) framework that provides essential functionality along with robust routing support. It enables you to build powerful web applications with ease.</li>
+          We are utilizing a modified version of <a href="https://github.com/silviodelgado/routerjs" target="_blank">RouterJS</a>, an open-source lightweight routing library created by <strong>silviodelgado</strong>, which incorporates enhancements for seamless navigation with URL parameters. <strong>You can find the enhanced version at <a href="https://github.com/anoxxxy/routerjs" target="_blank">RouterJS - enhanced</a></strong>.
+          </li>
         </ul>
-        <hr>
-
-        <strong>Summary of DexySPA.js</strong>
-        <p>This code snippet is a basic single-page application (SPA) template with a navigation menu using Bootstrap. It allows users to navigate between different pages within the application without refreshing the entire page.</p>
-
-        <p>The code sets up a navigation menu with tabs for different pages such as About, Bot, Balance, Login, and Logout. Each tab corresponds to a specific section on the page, which can be customized with content.</p>
-
-        <p>When a user clicks on a navigation link, the code uses JavaScript and Bootstrap to handle the tab switching functionality. The showPage function is responsible for showing the selected page and highlighting the active navigation link. It uses Bootstrap's tab method to show the selected tab.</p>
-
-        <p>The code also includes a lightweight routing library called <a href="https://github.com/silviodelgado/routerjs" target="_blank">RouterJS</a>, which helps in managing the page navigation and handling URL changes. It defines route handlers for each page, allowing the appropriate page to be shown based on the URL.</p>
-
-        <p>Additionally, the code includes some logic to determine the availability of pages based on the user's login status. Certain pages like Bot, Balance, and Logout are only accessible when the user is logged in, while the Login page is only accessible when the user is logged out.</p>
-
-        <p>Overall, this code provides a foundation for building a basic SPA with a navigation menu and tab switching functionality using Bootstrap and JavaScript. It can be customized and extended to add more pages and functionality as needed.</p>
-
-        <p>Please note that the code also includes references to external CSS and JavaScript files, including Bootstrap, jQuery, and the RouterJS library, which need to be included for the code to work properly.</p>
-
-        <p>Feel free to modify and enhance this code according to your specific requirements. Good luck with your project!</p>
-
-        <hr>
-
-        <div class="py-3">
-          <strong>Some notes:</strong>
-          <ul>
-            <li>The page contents have an id attribute (id="pageContents") for easy selection.</li>
-            <li>Each page content is encapsulated within a <div> element with a unique idfor easy identification and navigation.</li>
-            <li>The router functionality has been integrated using the RouterJS library. The router handles the routing logic based on the clicked navigation links and the requested URL.</li>
-            <li>The showPage function is responsible for showing the selected page and updating the active state of navigation links.</li>
-            <li>The isPageAvailable function determines whether a page is available based on the user's login status.</li>
-            <li>The router is configured with different routes for each page, and the beforeAll function is used to handle page availability and show the appropriate page.</li>
-            <li>The router's afterAll function can be used to run any code after all routes are processed.</li>
-            <li>Navigation clicks are handled using event delegation. The $('.nav-link') selector captures all navigation links, and the click event is attached to them. Clicking a navigation link triggers the showPage function to display the corresponding page.</li>
-            <li>The necessary JavaScript libraries (jQuery, Bootstrap, Velocity, RouterJS) are included at the end of the HTML file.</li>
-          </ul> 
-        </div>
 
     </div>
 
   </div>  <!-- //Container -->
 
-  <script src="./assets/js/jquery-3.6.1.min.js"></script>
-  <script src="./assets/js/bootstrap.min.js"></script>
+
+  <script src="./assets/js/bootstrap/bootstrap.min.js"></script>
   
-  <script src="./assets/js/velocity/velocity.min.js"></script>
-  <script src="./assets/js/velocity/velocity.ui.min.js"></script>
   <script src="./assets/js/router/router.js"></script>
-  <script src="./assets/js/dexyspa.js"></script>
+  <script src="./assets/js/dexyspa.class.js"></script>
+  <script>
+    //init project variables
+    let userIsLoggedIn = false;
+// Create your own router instance
+//const myRouter = new Router();
+
+// Configure your router as needed
+// Create an instance of Router
+
+
+// Add routes to the router
+Router
+.add(/^$/, (data) => {
+  console.log('**Empty page**');
+})
+.add(/^start$/, (data) => {
+  console.log('**Start page**');
+})
+.add(/^about$/, (data) => {
+  console.log('About page');
+})
+.add(/^bot$/, (data) => {
+  console.log('Bot page');
+})
+.add(/^balance$/, (data) => {
+  console.log('Balance page');
+})
+.add(/^profile$/, (data) => {
+  console.log('Profile page');
+})
+.add(/^market$/, (data) => {
+  console.log('Market page');
+})
+
+
+
+// Create your own page availability configuration
+const pagePermissions = {
+  '': true,   //start page, when website is loaded
+  start: true,
+  about: true,
+  bot: true, // Custom availability check based on login status
+  balance: (isLoggedIn) => isLoggedIn, // Custom availability check based on login status
+  market: true,
+  login: (isLoggedIn) => !isLoggedIn, // Custom availability check based on login status
+  logout: (isLoggedIn) => isLoggedIn, // Custom availability check based on login status
+  profile: (isLoggedIn) => isLoggedIn, // Custom availability check based on login status
+};
+const defaultPage = 'start'; // Replace with your desired default page
+
+// Create an instance of DexySPA and pass your router instance and page availability configuration
+const dexySPA = new DexySPA(Router, pagePermissions, defaultPage);
+
+//set user login status
+dexySPA.isUserLoggedIn = userIsLoggedIn || false;
+
+/*
+OR do it this way:
+
+// Define your custom callback functions
+const unauthorizedPageAccessCallback = (page) => {
+  alert(`Unauthorized page access: ${page}`);
+  // Custom logic for handling unauthorized page access
+};
+
+const invalidRouteCallback = () => {
+  alert('Invalid route detected');
+  // Custom logic for handling invalid routes
+};
+//const dexySPA = new DexySPA(Router, pagePermissions, defaultPage, unauthorizedPageAccessCallback, invalidRouteCallback);
+*/
+
+
+// Example of triggering custom navigation outside the class
+/*$('a[data-page="profile"]').on('click', () => {
+  dexySPA.navigateToPage('profile');
+  console.log('tried to navigate profile page');
+});
+*/
+//dexySPA.navigateToPage('ice');
+//console.log('tried to navigate ice');
+
+/*
+### DexySPA
+
+DexySPA is a professional single-page application (SPA) framework that provides essential functionality along with robust routing support. It enables you to build powerful web applications with ease.
+
+### Features
+
+- **Routing Support:** DexySPA utilizes a modified version of RouterJS, an open-source lightweight routing library by silviodelgado, to facilitate seamless navigation and URL parameter handling.
+- **Single-Page Application (SPA) Framework:** DexySPA empowers you to create dynamic and interactive SPAs, enhancing the user experience.
+- **Easy Integration:** You can effortlessly integrate DexySPA into your existing web projects, leveraging its modular and flexible architecture.
+- **Page Permissions:** DexySPA offers a page permission configuration system, allowing you to define access controls for different pages based on user authentication and other custom criteria.
+
+### Getting Started
+
+To start using DexySPA in your project, follow these steps:
+
+1. Include the `dexyspa.class.js` file in your project.
+2. Initialize the DexySPA instance by instantiating the `DexySPA` class with the necessary parameters.
+3. Configure the routing and page permissions using the provided methods.
+4. Implement the required page handlers and callbacks to customize the behavior of your application.
+5. Start the router to enable routing functionality.
+
+For detailed usage instructions, examples, and API reference, please refer to the [DexySPA Documentation](https://github.com/your-username/your-repo/wiki).
+
+### Credits
+
+DexySPA utilizes the modified version of RouterJS developed by silviodelgado. We appreciate the contribution and efforts made by the original RouterJS project.
+
+### License
+
+DexySPA is released under the [MIT License](https://opensource.org/licenses/MIT).
+
+### Contributions
+
+Contributions to DexySPA are welcome! If you find any issues or have suggestions for improvements, please feel free to submit a pull request or open an issue on the [GitHub repository](https://github.com/your-username/your-repo).
+
+### About
+
+DexySPA is developed and maintained by [Your Organization/Team Name](https://your-website-url.com). We aim to provide developers with powerful tools and frameworks to streamline web application development.
+
+### Support
+
+If you have any questions or need assistance, please reach out to our support team at [support@your-website-url.com](mailto:support@your-website-url.com).
+
+Let's build amazing SPAs together with DexySPA!
+*/
+
+  </script>
 </body>
 </html>

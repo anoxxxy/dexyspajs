@@ -38,6 +38,9 @@
     };
 
     const router = {
+        getRoutes: () => {
+          return internal.routes;
+        },
         getFragment: () => {
             //console.log('===getFragment===');
             var r;
@@ -50,8 +53,6 @@
 
         },
         add: (route, handler) => {
-            //console.log('===add===');
-            //console.log('route: : ', route);
             if (typeof route == 'function') {
                 handler = route;
                 route = '';
@@ -63,27 +64,24 @@
             return router;
         },
         beforeAll: (handler) => {
-            //console.log('**beforeAll**');
             internal.run_before = handler;
             return router;
         },
         afterAll: (handler) => {
-            //console.log('**afterAll**');
             internal.run_after = handler;
             return router;
         },
         apply: (frg) => {
-            //console.log('===apply===');
-            //console.log('frg: : ', frg);
-
             let fragment = frg || router.getFragment();
-            //console.log('fragment: ', fragment);
+            console.log('fragment: ', fragment);
+            fragment = (fragment.charAt(0) === '#') ? fragment.slice(1) : fragment;   //if first char is # remove it
 
             for (let i = 0; i < internal.routes.length; i++) {
                 let matches = fragment.match(internal.routes[i].route);
                 console.log('matches: ', matches);
                 if (matches) {
                     //matches.shift(); //remove the matched string
+                    console.log('matches2: ', matches);
                     router.parseUrl(matches);    //parse url parameters
                     if (!internal.history[fragment])
                         internal.history.push(fragment);
@@ -93,7 +91,8 @@
                     
                     internal.routes[i].handler.apply({}, [matches]);  //pass parameter as array, //this.routes[i].handler.apply({}, [matches]); 
                     run_after();
-                    return router;
+                    //return router;
+                    break;
                 }
             }
 
@@ -126,6 +125,7 @@
             //path = path.replace('?', '#') || '';
             console.log('path: ', path);
             window.location.hash = path ? '#' + path : '';
+            router.parseUrl(window.location.hash);
             return this;
         },
         clearHash: () => {
@@ -153,8 +153,6 @@
             url = url[0];
 
           url = url.trim(); // Trim the URL
-
-          console.log('parseUrl: ', url);
   
           let hashIndex = url.indexOf('#'); // Find the index of '#'
           let urlFragment, queryStringIndex;
@@ -192,7 +190,7 @@
           }
 
             //const page = (path.length > 0 ? path[0] : urlFragment.replace(/^#([^?]+)(\?.*)?$/, '$1') || null);
-          const page = path.length > 0 ? path[0] : pathString === '/' ? null : pathString || null;
+          const page = path.length > 0 ? path[0] : pathString === '/' ? '' : pathString || '';
 
           const output = {
             "urlString": urlFragment,

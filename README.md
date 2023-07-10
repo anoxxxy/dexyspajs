@@ -19,6 +19,14 @@ Please note that the code also includes references to external CSS and JavaScrip
 
 Feel free to modify and enhance this code according to your specific requirements. Good luck with your project!
 
+## Updates
+DexySPA v0.22 - Updates:
+- Removed JQuery dependency for improved performance and reduced file size.
+- Improved handling of invalid routes for better error handling.
+- Enhanced handling of unauthorized page access for enhanced security.
+- Upgraded Router.JS for seamless navigation of hash-pages in VanillaJS.
+- In addition to the updates mentioned above, the DexySPA framework now includes the `dexyspa.class.js` file. This file contains the `DexySPA` class, which serves as the core component of the DexySPA framework. You can use this class to initialize and configure your SPA.
+
 
 ## Features
 
