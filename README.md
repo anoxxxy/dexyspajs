@@ -48,10 +48,7 @@ See index.html for easy understanding.
 
 # Credits
 
-Bootstrap 4: https://getbootstrap.com
 RouterJS: https://github.com/silviodelgado/routerjs
-Velocity: http://velocityjs.org
-JQuery: https://jquery.com/
 
 # Contributing
 
