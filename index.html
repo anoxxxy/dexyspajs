@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Navigation Menu</title>
+  <title>DexySpa.js - Simple SPA</title>
   <link rel="stylesheet" href="./assets/css/bootstrap/bootstrap.min.css">
 
   <style>
@@ -21,35 +21,47 @@
     <!-- Navigation Menu -->
     <ul class="nav nav-tabs" id="navigationTabs">
       <li class="nav-item">
-        <a class="nav-link" href="#start" data-page="start">Start</a>
+        <a class="nav-link" href="#start" data-page-link="start">Start</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#about" data-page="about">About</a>
+        <a class="nav-link" href="#about" data-page-link="about">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#bot" data-page="bot">Bot</a>
+        <a class="nav-link" href="#bot" data-page-link="bot">Bot</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#market" data-page="market">Market</a>
+        <a class="nav-link" href="#market" data-page-link="market">Market</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#balance" data-page="balance">Balance</a>
+        <a class="nav-link" href="#balance" data-page-link="balance">Balance</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#login" data-page="login">Login</a>
+        <a class="nav-link" href="#login" data-page-link="login">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#logout" data-page="logout">Logout</a>
+        <a class="nav-link" href="#logout" data-page-link="logout">Logout</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#profile" data-page="profile">Profile</a>
+        <a class="nav-link" href="#profile" data-page-link="profile">Profile</a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#profile" data-page-link="profile">Profile</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#vip1" data-page-link="vip1">Vip 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#vip2" data-page-link="vip2">Vip 2</a>
+      </li>
+      
     </ul>
     
     <!-- Page Contents -->
     <div class="tab-content" id="pageContents">
       <!-- Start Page -->
-      <div id="start" class="tab-pane fade">
+      <div id="start" data-page="start" class="tab-pane fade">
         <h3>Start Page</h3>
         <!-- Add your content for the Start page here -->
         <div class="card">
@@ -58,7 +70,7 @@
       </div>
 
       <!-- About Page -->
-      <div id="about" class="tab-pane fade">
+      <div id="about" data-page="about" class="tab-pane fade">
         <h3>About Page</h3>
         <!-- Add your content for the About page here -->
         <div class="card">
@@ -67,7 +79,7 @@
       </div>
 
       <!-- Bot Page -->
-      <div id="bot" class="tab-pane fade">
+      <div id="bot" data-page="bot" class="tab-pane fade">
         <h3>Bot Page</h3>
         <!-- Add your content for the Bot page here -->
         <div class="card">
@@ -76,7 +88,7 @@
       </div>
 
       <!-- Market Page -->
-      <div id="market" class="tab-pane fade">
+      <div id="market" data-page="market" class="tab-pane fade">
         <h3>Market Page</h3>
         <!-- Add your content for the Market page here -->
         <div class="card">
@@ -85,7 +97,7 @@
       </div>
       
       <!-- Login Page -->
-      <div id="login" class="tab-pane fade">
+      <div id="login" data-page="login" class="tab-pane fade">
         <h3>Login Page</h3>
         <!-- Add your content for the Login page here -->
         <div class="card">
@@ -94,7 +106,7 @@
       </div>
 
       <!-- Logout Page -->
-      <div id="logout" class="tab-pane fade">
+      <div id="logout" data-page="logout" class="tab-pane fade">
         <h3>Logout Page</h3>
         <!-- Add your content for the Logout page here -->
         <div class="card">
@@ -103,7 +115,7 @@
       </div>
 
       <!-- Balance Page -->
-      <div id="balance" class="tab-pane fade">
+      <div id="balance" data-page="balance" class="tab-pane fade">
         <h3>Balance Page</h3>
         <!-- Add your content for the Balance page here -->
         <div class="card">
@@ -112,11 +124,28 @@
       </div>
 
       <!-- Profile Page -->
-      <div id="profile" class="tab-pane fade">
+      <div id="profile" data-page="profile" class="tab-pane fade">
         <h3>Profile Page</h3>
         <!-- Add your content for the Balance page here -->
         <div class="card">
           Lorem ipsum mipsum dolore... profile..
+        </div>
+      </div>
+
+      <!-- VIP1 Page -->
+      <div id="vip1" data-page="vip1" class="tab-pane fade">
+        <h3>VIP 1 Page</h3>
+        <!-- Add your content for the Balance page here -->
+        <div class="card">
+          Lorem ipsum mipsum dolore... vip1..
+        </div>
+      </div>
+      <!-- VIP2 Page -->
+      <div id="vip2" data-page="vip2" class="tab-pane fade">
+        <h3>VIP 2 Page</h3>
+        <!-- Add your content for the Balance page here -->
+        <div class="card">
+          Lorem ipsum mipsum dolore... vip2..
         </div>
       </div>
       
@@ -125,6 +154,14 @@
     <!-- DexySPA.js info -->
     <div class="py-4" id="dexySPAInfo">
       <!-- Display version and credits -->
+      
+      <p>DexySPA v0.24 - Updates:</p>
+      <ul>
+        <li>Added support for VIP memberships with dynamic page access permissions based on user's membership level</li>
+        <li>Updated comments and improved code readability</li>
+        <li>Replaced "data-page" with "data-page-link" for nav-links</li>
+        <li>Added "data-page" for pages as an alternative for "#id-navigation"</li>
+      </ul>
       
       <p>DexySPA v0.22 - Updates:</p>
       <ul>
@@ -154,6 +191,7 @@
   <script>
     //init project variables
     let userIsLoggedIn = false;
+    let userMembership = 'gold';
 // Create your own router instance
 //const myRouter = new Router();
 
@@ -184,8 +222,29 @@ Router
 .add(/^market$/, (data) => {
   console.log('Market page');
 })
+.add(/^vip1$/, (data) => {
+  console.log('Vip 1 page');
+})
+.add(/^vip2$/, (data) => {
+  console.log('Vip 2 page');
+})
 
 
+//membership based page permissions
+const membershipPermissions = {
+  'gold': {
+    'permissions': ['vip1', 'vip2'],
+  },
+  'silver': {
+    'permissions': ['vip1'],
+  },
+  'bronze': {
+    'permissions': [],
+  },
+  '': {
+    'permissions': [],
+  },
+};
 
 // Create your own page availability configuration
 const pagePermissions = {
@@ -198,14 +257,27 @@ const pagePermissions = {
   login: (isLoggedIn) => !isLoggedIn, // Custom availability check based on login status
   logout: (isLoggedIn) => isLoggedIn, // Custom availability check based on login status
   profile: (isLoggedIn) => isLoggedIn, // Custom availability check based on login status
+  vip1: {
+    'membership': (isLoggedIn, userMembership) => {
+      // Check if the user has the required membership to access vip2 page, in this case user must be a "silver/gold" member
+      return isLoggedIn && membershipPermissions[userMembership]?.permissions.includes('vip1');
+    },
+  },
+  vip2: {
+    'membership': (isLoggedIn, userMembership) => {
+      // Check if the user has the required membership to access vip2 page, in this case user must be a "gold" member
+      return isLoggedIn && membershipPermissions[userMembership]?.permissions.includes('vip2');
+    },
+  },
 };
 const defaultPage = 'start'; // Replace with your desired default page
 
 // Create an instance of DexySPA and pass your router instance and page availability configuration
-const dexySPA = new DexySPA(Router, pagePermissions, defaultPage);
+const dexySPA = new DexySPA(Router, pagePermissions, membershipPermissions, defaultPage);
 
 //set user login status
 dexySPA.isUserLoggedIn = userIsLoggedIn || false;
+dexySPA.userMembership = userMembership || '';
 
 /*
 OR do it this way:
@@ -225,7 +297,7 @@ const invalidRouteCallback = () => {
 
 
 // Example of triggering custom navigation outside the class
-/*$('a[data-page="profile"]').on('click', () => {
+/*$('a[data-page-link="profile"]').on('click', () => {
   dexySPA.navigateToPage('profile');
   console.log('tried to navigate profile page');
 });
@@ -244,6 +316,7 @@ DexySPA is a professional single-page application (SPA) framework that provides 
 - **Single-Page Application (SPA) Framework:** DexySPA empowers you to create dynamic and interactive SPAs, enhancing the user experience.
 - **Easy Integration:** You can effortlessly integrate DexySPA into your existing web projects, leveraging its modular and flexible architecture.
 - **Page Permissions:** DexySPA offers a page permission configuration system, allowing you to define access controls for different pages based on user authentication and other custom criteria.
+- ** User Membership Pages: DexySpa.js supports the definition of specific pages that are accessible only to users with specific membership levels. This feature enables the creation of exclusive content and tailored experiences based on user membership.
 
 ### Getting Started
 
@@ -254,30 +327,6 @@ To start using DexySPA in your project, follow these steps:
 3. Configure the routing and page permissions using the provided methods.
 4. Implement the required page handlers and callbacks to customize the behavior of your application.
 5. Start the router to enable routing functionality.
-
-For detailed usage instructions, examples, and API reference, please refer to the [DexySPA Documentation](https://github.com/your-username/your-repo/wiki).
-
-### Credits
-
-DexySPA utilizes the modified version of RouterJS developed by silviodelgado. We appreciate the contribution and efforts made by the original RouterJS project.
-
-### License
-
-DexySPA is released under the [MIT License](https://opensource.org/licenses/MIT).
-
-### Contributions
-
-Contributions to DexySPA are welcome! If you find any issues or have suggestions for improvements, please feel free to submit a pull request or open an issue on the [GitHub repository](https://github.com/your-username/your-repo).
-
-### About
-
-DexySPA is developed and maintained by [Your Organization/Team Name](https://your-website-url.com). We aim to provide developers with powerful tools and frameworks to streamline web application development.
-
-### Support
-
-If you have any questions or need assistance, please reach out to our support team at [support@your-website-url.com](mailto:support@your-website-url.com).
-
-Let's build amazing SPAs together with DexySPA!
 */
 
   </script>

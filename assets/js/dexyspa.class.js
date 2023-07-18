@@ -15,11 +15,13 @@ class DexySPA {
    * @param {function} [unauthorizedPageAccessCallback] - The callback function to handle unauthorized page access.
    * @param {function} [invalidRouteCallback] - The callback function to handle invalid routes.
    */
-  constructor(router, pagePermissions, defaultPage = 'start', unauthorizedPageAccessCallback, invalidRouteCallback) {
+  constructor(router, pagePermissions, membershipPermissions, defaultPage = 'start', unauthorizedPageAccessCallback, invalidRouteCallback) {
     this.version = 'v0.22';
     this.isLoggedIn = false;
+    this.userMembership = '';
     this.router = router;
     this.pagePermissions = pagePermissions;
+    this.membershipPermissions = membershipPermissions;
     this.currentPage = '';
     this.defaultPage =  defaultPage;
     this.unauthorizedPageAccessCallback = unauthorizedPageAccessCallback;
@@ -57,7 +59,7 @@ class DexySPA {
     navLinks.forEach((link) => {
       link.addEventListener('click', (event) => {
         event.preventDefault();
-        const page = link.dataset.page;
+        const page = link.dataset.pageLink;
         this.navigateToPage(page);
       });
     });
@@ -124,6 +126,7 @@ class DexySPA {
     console.log('\n**DexySPA.js - Run Before All Routes!', this.router.urlParams.page);
     const requestedPage = this.router.urlParams.page;
     const canAccessPage = this.canAccessPage(requestedPage);
+    console.log('canAccessPage route: ', canAccessPage);
     if (!canAccessPage) {
       this.handleUnauthorizedPageAccess(requestedPage);
       return;
@@ -169,7 +172,7 @@ class DexySPA {
       pane.classList.remove('show', 'active');
     });
 
-    const pageLink = document.querySelector(`[data-page="${page}"]`);
+    const pageLink = document.querySelector(`[data-page-link="${page}"]`);
     const pageElement = document.getElementById(page);
 
     if (pageLink) {
@@ -185,9 +188,9 @@ class DexySPA {
   }
 
   /**
-   * Check if the current user can access the page.
-   * @param {string} page - The page to check access for.
-   * @returns {boolean} - True if the user can access the page, false otherwise.
+   * Checks if the specified page is accessible based on the user's login status and membership.
+   * @param {string} page - The page to check accessibility for.
+   * @returns {boolean} - Indicates whether the page is accessible or not.
    */
   canAccessPage = (page) => {
     console.log('===canAccessPage: ', page);
@@ -195,15 +198,24 @@ class DexySPA {
     // Check if the page is available based on the boolean value (for all users)
     const availability = this.pagePermissions[page];
 
-    // Check if the page is available based on the user login status
+    // Check if the page is available based on the user login status and membership
     const isAvailable = typeof availability === 'function'
-    ? availability(this.isLoggedIn)
-    : availability === true || availability === this.isLoggedIn;
+    ? availability(this.isLoggedIn, this.userMembership) // If availability is a function, invoke it with isLoggedIn and userMembership parameters
+    : availability === true || // If availability is true, the page is available for all users
+      availability === this.isLoggedIn || // If availability is equal to the user's login status, the page is available
+      (this.userMembership && this.pagePermissions[page]?.membership(this.isLoggedIn, this.userMembership)); // If userMembership is set and the page has a membership-based availability, check if the user has the required membership
+
+  // Explanation of conditions:
+  // 1. If availability is a function, it determines the page's availability based on custom logic
+  // 2. If availability is true, the page is available for all users
+  // 3. If availability matches the user's login status, the page is available
+  // 4. If userMembership is set and the page has membership-based availability, check if the user has the required membership
+
 
     console.log('isAvailable: ', isAvailable); // Log the boolean value
 
     return isAvailable;
-  }
+  };
 
   /**
    * Navigate to the specified page.
