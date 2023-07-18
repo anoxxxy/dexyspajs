@@ -15,13 +15,11 @@ class DexySPA {
    * @param {function} [unauthorizedPageAccessCallback] - The callback function to handle unauthorized page access.
    * @param {function} [invalidRouteCallback] - The callback function to handle invalid routes.
    */
-  constructor(router, pagePermissions, membershipPermissions, defaultPage = 'start', unauthorizedPageAccessCallback, invalidRouteCallback) {
+  constructor(router, pagePermissions, defaultPage = 'start', unauthorizedPageAccessCallback, invalidRouteCallback) {
     this.version = 'v0.22';
     this.isLoggedIn = false;
-    this.userMembership = '';
     this.router = router;
     this.pagePermissions = pagePermissions;
-    this.membershipPermissions = membershipPermissions;
     this.currentPage = '';
     this.defaultPage =  defaultPage;
     this.unauthorizedPageAccessCallback = unauthorizedPageAccessCallback;
@@ -126,7 +124,6 @@ class DexySPA {
     console.log('\n**DexySPA.js - Run Before All Routes!', this.router.urlParams.page);
     const requestedPage = this.router.urlParams.page;
     const canAccessPage = this.canAccessPage(requestedPage);
-    console.log('canAccessPage route: ', canAccessPage);
     if (!canAccessPage) {
       this.handleUnauthorizedPageAccess(requestedPage);
       return;
@@ -188,9 +185,9 @@ class DexySPA {
   }
 
   /**
-   * Checks if the specified page is accessible based on the user's login status and membership.
-   * @param {string} page - The page to check accessibility for.
-   * @returns {boolean} - Indicates whether the page is accessible or not.
+   * Check if the current user can access the page.
+   * @param {string} page - The page to check access for.
+   * @returns {boolean} - True if the user can access the page, false otherwise.
    */
   canAccessPage = (page) => {
     console.log('===canAccessPage: ', page);
@@ -198,24 +195,15 @@ class DexySPA {
     // Check if the page is available based on the boolean value (for all users)
     const availability = this.pagePermissions[page];
 
-    // Check if the page is available based on the user login status and membership
+    // Check if the page is available based on the user login status
     const isAvailable = typeof availability === 'function'
-    ? availability(this.isLoggedIn, this.userMembership) // If availability is a function, invoke it with isLoggedIn and userMembership parameters
-    : availability === true || // If availability is true, the page is available for all users
-      availability === this.isLoggedIn || // If availability is equal to the user's login status, the page is available
-      (this.userMembership && this.pagePermissions[page]?.membership(this.isLoggedIn, this.userMembership)); // If userMembership is set and the page has a membership-based availability, check if the user has the required membership
-
-  // Explanation of conditions:
-  // 1. If availability is a function, it determines the page's availability based on custom logic
-  // 2. If availability is true, the page is available for all users
-  // 3. If availability matches the user's login status, the page is available
-  // 4. If userMembership is set and the page has membership-based availability, check if the user has the required membership
-
+    ? availability(this.isLoggedIn)
+    : availability === true || availability === this.isLoggedIn;
 
     console.log('isAvailable: ', isAvailable); // Log the boolean value
 
     return isAvailable;
-  };
+  }
 
   /**
    * Navigate to the specified page.
